@@ -11,6 +11,13 @@ const app = new Hono<{
 	}
 }>();
 
+app.use('/api/v1/blog/*', async (c, next) => {
+  // get the header
+  // verify the header
+  // if the header is correct, we need can proceed,
+  // if not, we return user a 403 status
+  await next()
+})
 
 app.post('/api/v1/signup', async (c) => {
 	const prisma = new PrismaClient({
